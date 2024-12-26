@@ -98,6 +98,9 @@ export default async function getTickers() {
       const data = await fetchData();
       tickers = data.map((stock) => stock['Symbol']); // Get symbols from data
 
+      // Fix the class B stocks by replacing periods with hyphens
+      tickers = tickers.map((ticker) => ticker.replace('.', '-'));
+
       // Cache the new data
       fs.mkdirSync(path.dirname(cacheFilePath), { recursive: true }); // Ensure the data folder exists
       fs.writeFileSync(cacheFilePath, JSON.stringify(tickers, null, 2), 'utf8');
