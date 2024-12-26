@@ -32,7 +32,7 @@ This project is an educational initiative designed to display live S&P 500 stock
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/<your-repo>/led-stock-ticker.git
+   git clone https://github.com/quangngonz/isph-stocks-rpi-led-screen.git
    cd led-stock-ticker
    ```
 
