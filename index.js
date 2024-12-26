@@ -1,41 +1,66 @@
 import { LedMatrix, Font } from 'rpi-led-matrix';
 import { matrixOptions, runtimeOptions } from './_config.js';
 
-// Function to generate a smooth rainbow color
-const getRainbowColor = (step) => {
-  // const r = Math.floor(Math.sin(step + 0) * 127 + 128); // Red channel
-  // const g = Math.floor(Math.sin(step + 2) * 127 + 128); // Green channel
-  // const b = Math.floor(Math.sin(step + 4) * 127 + 128); // Blue channel
+import fetchSP500 from './utils/fetchSP500.js';
+import getTickers from './utils/fetchTickers.js';
+import getFormattedTickers from './utils/tickersFormatter.js';
 
-  const r = 0;
-  const g = 255;
-  const b = 0;
-
-  return (r << 16) | (g << 8) | b; // Return combined RGB value
-};
-
+// Initialize the LED matrix
 const matrix = new LedMatrix(matrixOptions, runtimeOptions);
-
-// const font = new Font('helvR12', `${process.cwd()}/fonts/10x20.bdf`);
 const font = new Font('helvR12', `${process.cwd()}/fonts/knxt.bdf`);
 
-const text = 'APPL 20 ▲3% ';
-const textWidth = text.length * 10; // Adjust this value based on the actual text width
-let xPos = 0;
-let step = 0;
+// Fetch formatted ticker data
+let textParts = []; // Initialize textParts as an empty array
+
+// Function to fetch and update textParts
+const updateTickers = async () => {
+  console.log('Fetching SP500 data and updating tickers...');
+  await fetchSP500(); // Fetch SP500 data
+  await getTickers(); // Get ticker data
+  textParts = getFormattedTickers(); // Update textParts with new data
+  console.log('Tickers updated:', textParts);
+};
+
+// Call updateTickers once at startup
+await updateTickers();
+
+// Schedule updateTickers to run once a day
+setInterval(updateTickers, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+
+// Calculate the total text width
+const textWidth = textParts.reduce((acc, partGroup) => {
+  const groupWidth = partGroup.reduce(
+    (groupAcc, part) => groupAcc + part.text.length * 9,
+    0
+  );
+  return acc + groupWidth;
+}, 5); // Adjust padding as needed
+
+let xPos = 0; // Starting x-position
 
 matrix.afterSync((mat, dt, t) => {
   matrix.font(font);
   matrix.clear(); // Clear the display
 
-  const color = getRainbowColor(step);
-  matrix.fgColor(color);
-  step += 0.05;
-  if (step > 6.28) step = 0; // Loop the rainbow effect
+  let currentX = xPos; // Track the x position for each part
+  textParts.forEach((partGroup) => {
+    partGroup.forEach((part) => {
+      matrix.fgColor(part.color); // Set the color for the part
+      matrix.drawText(part.text, currentX, -2); // Draw the text part
+      // TODO: Custom spacing width
+      currentX += part.text.length * 9; // Move x position for the next part
+    });
+  });
 
-  // Draw the text twice to create a seamless scrolling effect
-  matrix.drawText(text, xPos, -2); // Main text
-  matrix.drawText(text, xPos + textWidth, -2); // Follow-up text
+  // Repeat the text for seamless scrolling
+  let followUpX = xPos + textWidth;
+  textParts.forEach((partGroup) => {
+    partGroup.forEach((part) => {
+      matrix.fgColor(part.color); // Set the color for the part
+      matrix.drawText(part.text, followUpX, -2); // Draw the follow-up text part
+      followUpX += part.text.length * 9; // Move x position for the next part
+    });
+  });
 
   // Update the x-position for smooth scrolling
   xPos -= 1; // Move left
@@ -43,7 +68,7 @@ matrix.afterSync((mat, dt, t) => {
     xPos = 0; // Reset position when the first instance is fully off-screen
   }
 
-  setTimeout(() => matrix.sync(), 100);
+  setTimeout(() => matrix.sync(), 1000 / 60); // Schedule the next sync
 });
 
-matrix.sync();
+matrix.sync(); // Start the display

@@ -58,6 +58,4 @@ const fetchSP500 = async () => {
   return allData;
 };
 
-fetchSP500();
-
 export default fetchSP500;
