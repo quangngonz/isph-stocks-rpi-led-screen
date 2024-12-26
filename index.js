@@ -24,7 +24,7 @@ const textWidth = text.length * 10; // Adjust this value based on the actual tex
 let xPos = 0;
 let step = 0;
 
-setInterval(() => {
+matrix.afterSync((mat, dt, t) => {
   matrix.font(font);
   matrix.clear(); // Clear the display
 
@@ -43,5 +43,7 @@ setInterval(() => {
     xPos = 0; // Reset position when the first instance is fully off-screen
   }
 
-  matrix.sync(); // Sync the matrix display
-}, 100);
+  setTimeout(() => matrix.sync(), 100);
+});
+
+matrix.sync();
