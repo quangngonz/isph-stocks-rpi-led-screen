@@ -63,7 +63,7 @@ async function fetchData() {
   });
 }
 
-// Wrap the call to fetchData in an async function
+// fetchData in an async function
 async function main() {
   try {
     const data = await fetchData();
