@@ -8,13 +8,7 @@ export const matrixOptions = {
   hardwareMapping: GpioMapping.Regular,
   disableHardwarePulsing: true,
   // parallel: 0,
-  // panelType: 'FM6127',
-  // limitRefreshRateHz: 1,
   showRefreshRate: true,
-  // pixelMapperConfig: LedMatrixUtils.encodeMappers(
-  //   { type: PixelMapperType.Chainlink }
-  // ),
-  // pixelMapperConfig: LedMatrixUtils.encodeMappers({ type: PixelMapperType.U }),
 };
 
 console.log('matrix options: ', JSON.stringify(matrixOptions, null, 2));

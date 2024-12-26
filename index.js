@@ -7,7 +7,8 @@ import getFormattedTickers from './utils/tickersFormatter.js';
 
 // Initialize the LED matrix
 const matrix = new LedMatrix(matrixOptions, runtimeOptions);
-const font = new Font('helvR12', `${process.cwd()}/fonts/knxt.bdf`);
+// TODO: Add custom font
+const font = new Font('knxt', `${process.cwd()}/fonts/knxt.bdf`);
 
 // Fetch formatted ticker data
 let textParts = []; // Initialize textParts as an empty array
@@ -39,6 +40,7 @@ const textWidth = textParts.reduce((acc, partGroup) => {
 let xPos = 0; // Starting x-position
 
 matrix.afterSync((mat, dt, t) => {
+  matrix.brightness(50);
   matrix.font(font);
   matrix.clear(); // Clear the display
 
@@ -68,7 +70,7 @@ matrix.afterSync((mat, dt, t) => {
     xPos = 0; // Reset position when the first instance is fully off-screen
   }
 
-  setTimeout(() => matrix.sync(), 1000 / 60); // Schedule the next sync
+  setTimeout(() => matrix.sync(), 1000 / 10); // Schedule the next sync
 });
 
 matrix.sync(); // Start the display
