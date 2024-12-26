@@ -111,3 +111,8 @@ For educational purposes only.
 ## Contribution
 
 Contributions are welcome! Feel free to fork the repository, suggest improvements, or report issues.
+
+For inquiries, contact:
+
+- **School Email**: quang.n.student@isph.edu.vn
+- **Personal Email**: quangngo.nz@gmail.com
