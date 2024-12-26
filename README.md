@@ -4,15 +4,11 @@
 
 This project is an educational initiative designed to display live S&P 500 stock information on a P10 HUB75 LED screen using a Raspberry Pi. The project demonstrates the integration of hardware and software to visualize real-time financial data, making it an engaging tool for learning about technology and economics.
 
----
-
 ## Features
 
 - **Real-Time Data**: Displays continuously updated S&P 500 stock tickers.
 - **Smooth Scrolling**: Text scrolls seamlessly across the LED panel for clear visibility.
 - **Customizable Appearance**: Adjust text size, colors, and brightness.
-
----
 
 ## Hardware Requirements
 
@@ -21,8 +17,6 @@ This project is an educational initiative designed to display live S&P 500 stock
 3. **5V Power Supply** (sufficient for powering the LED panel)
 4. **GPIO Wiring** (connect the LED panel to the Raspberry Pi)
 5. **MicroSD Card** (with Raspbian OS installed)
-
----
 
 ## Software Setup
 
@@ -56,8 +50,6 @@ This project is an educational initiative designed to display live S&P 500 stock
    node index.js
    ```
 
----
-
 ## Project Structure
 
 - **`index.js`**: Main script controlling the LED display.
@@ -66,8 +58,6 @@ This project is an educational initiative designed to display live S&P 500 stock
 - **`utils/fetchTickers.js`**: Retrieves stock tickers of the S&P 500.
 - **`utils/tickersFormatter.js`**: Formats the ticker data for the LED display.
 - **`fonts/`**: Stores `.bdf` font files used for rendering text.
-
----
 
 ## Configuration
 
@@ -92,8 +82,6 @@ export const runtimeOptions = {
 };
 ```
 
----
-
 ## Acknowledgments
 
 ### Libraries Used
@@ -103,8 +91,6 @@ export const runtimeOptions = {
 
 2. **[alexeden/rpi-led-matrix](https://github.com/alexeden/rpi-led-matrix)**  
    Node.js bindings for `rpi-rgb-led-matrix` with added features for double-buffering and smoother rendering.
-
----
 
 ## Educational Value
 
@@ -116,18 +102,12 @@ This project aims to inspire students by combining concepts from:
 
 It is planned to be put in an Economics classroom to help students visualize the stock market.
 
----
-
 ## License
 
 This project is licensed under the **GNU General Public License Version 2.0**, following the guidelines of the underlying libraries.
 
 For educational purposes only.
 
----
-
 ## Contribution
 
 Contributions are welcome! Feel free to fork the repository, suggest improvements, or report issues.
-
----
