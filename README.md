@@ -13,7 +13,7 @@ This project is an educational initiative designed to display live S&P 500 stock
 ## Hardware Requirements
 
 1. **P10 HUB75 LED Panel**
-2. **Raspberry Pi** (tested with Raspberry Pi 3/4)
+2. **Raspberry Pi** (tested with Raspberry Pi 4 - 8GB)
 3. **5V Power Supply** (sufficient for powering the LED panel)
 4. **GPIO Wiring** (connect the LED panel to the Raspberry Pi)
 5. **MicroSD Card** (with Raspbian OS installed)
