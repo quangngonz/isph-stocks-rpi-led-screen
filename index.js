@@ -19,7 +19,7 @@ const matrix = new LedMatrix(matrixOptions, runtimeOptions);
 // const font = new Font('helvR12', `${process.cwd()}/fonts/10x20.bdf`);
 const font = new Font('helvR12', `${process.cwd()}/fonts/knxt.bdf`);
 
-const text = '▲ APPL 20 3%';
+const text = 'APPL 20 ▲3% ';
 const textWidth = text.length * 10; // Adjust this value based on the actual text width
 let xPos = 0;
 let step = 0;
