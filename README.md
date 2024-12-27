@@ -8,11 +8,7 @@ This project is an educational initiative designed to display live S&P 500 stock
 
 See the project in action!
 
-<div style="max-width: 600px; margin: 0 0;">
-  <a href="demo/demo_video.mp4">
-    <img src="demo/thumbnail.png" alt="Watch the Demo">
-  </a>
-</div>
+![Demo Video](demo/demo_video.gif)
 
 You can also find the video in the `demo/demo_video.mp4` file in this repository.
 
