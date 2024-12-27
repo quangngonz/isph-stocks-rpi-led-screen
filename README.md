@@ -4,6 +4,18 @@
 
 This project is an educational initiative designed to display live S&P 500 stock information on a P10 HUB75 LED screen using a Raspberry Pi. The project demonstrates the integration of hardware and software to visualize real-time financial data, making it an engaging tool for learning about technology and economics.
 
+### Demo
+
+See the project in action!
+
+<div style="max-width: 600px; margin: 0 0;">
+  <a href="demo/demo_video.mp4">
+    <img src="demo/thumbnail.png" alt="Watch the Demo">
+  </a>
+</div>
+
+You can also find the video in the `demo/demo_video.mp4` file in this repository.
+
 ## Features
 
 - **Real-Time Data**: Displays continuously updated S&P 500 stock tickers.
@@ -49,14 +61,6 @@ This project is an educational initiative designed to display live S&P 500 stock
    ```bash
    node index.js
    ```
-
-## Demo
-
-See the project in action!
-
-[![Watch the Demo](demo/thumbnail.png)](demo/demo_video.mp4)
-
-You can also find the video in the `demo/demo_video.mp4` file in this repository.
 
 ## Project Structure
 
