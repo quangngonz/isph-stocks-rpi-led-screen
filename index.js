@@ -7,10 +7,9 @@ import getFormattedTickers from './utils/tickersFormatter.js';
 
 // Initialize the LED matrix
 const matrix = new LedMatrix(matrixOptions, runtimeOptions);
-// TODO: Add custom font
 // const font = new Font('peep', `${process.cwd()}/fonts/peep-10x20.bdf`);
-// const font = new Font('knxt', `${process.cwd()}/fonts/knxt.bdf`);
-const font = new Font('Haxor', `${process.cwd()}/fonts/HaxorNarrow-17.bdf`);
+const font = new Font('knxt', `${process.cwd()}/fonts/knxt_space_4.bdf`);
+// const font = new Font('Haxor', `${process.cwd()}/fonts/HaxorNarrow-17.bdf`);
 
 // Fetch formatted ticker data
 let textParts = []; // Initialize textParts as an empty array
@@ -51,7 +50,6 @@ matrix.afterSync((mat, dt, t) => {
     partGroup.forEach((part) => {
       matrix.fgColor(part.color); // Set the color for the part
       matrix.drawText(part.text, currentX, -2); // Draw the text part
-      // TODO: Custom spacing width
       currentX += part.text.length * 9; // Move x position for the next part
     });
   });
