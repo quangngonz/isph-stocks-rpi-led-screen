@@ -54,6 +54,7 @@ You can also find the video in the `demo/demo_video.mp4` file in this repository
    Place your `.bdf` font files in the `fonts/` directory. The default script uses `knxt`.
 
 4. **Run the Project**:
+
    ```bash
    node index.js
    ```
@@ -122,5 +123,5 @@ Contributions are welcome! Feel free to fork the repository, suggest improvement
 
 For inquiries, contact:
 
-- **School Email**: quang.n.student@isph.edu.vn
-- **Personal Email**: quangngo.nz@gmail.com
+- **School Email**: <quang.n.student@isph.edu.vn>
+- **Personal Email**: <quangngo.nz@gmail.com>
