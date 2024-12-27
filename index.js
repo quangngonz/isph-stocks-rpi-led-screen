@@ -41,7 +41,7 @@ const textWidth = textParts.reduce((acc, partGroup) => {
 let xPos = 0; // Starting x-position
 
 const END_SPACING = 8;
-const SCROLL_SPEED = 1000 / 7;
+const SCROLL_SPEED = 1000 / 100;
 const BRIGHTNESS = 80;
 
 matrix.afterSync((mat, dt, t) => {
@@ -57,9 +57,11 @@ matrix.afterSync((mat, dt, t) => {
 
       // Add spacing for the end of the group
       if (part.text.includes('%')) {
-        currentX += part.text.length * 9 + END_SPACING; // Move x position for the next part
+        currentX += part.text.length * 10 + END_SPACING; // Move x position for the next part
+      } else if (part.text.length > 1) {
+        currentX += part.text.length * 10 - 3; // Move x position for the next part
       } else {
-        currentX += part.text.length * 9; // Move x position for the next part
+        currentX += part.text.length * 10; // Move x position for the next part
       }
     });
   });
@@ -73,9 +75,11 @@ matrix.afterSync((mat, dt, t) => {
 
       // Add spacing for the end of the group
       if (part.text.includes('%')) {
-        currentX += part.text.length * 9 + END_SPACING; // Move x position for the next part
+        currentX += part.text.length * 10 + END_SPACING; // Move x position for the next part
+      } else if (part.text.length > 1) {
+        currentX += part.text.length * 10 - 3; // Move x position for the next part
       } else {
-        currentX += part.text.length * 9; // Move x position for the next part
+        currentX += part.text.length * 10; // Move x position for the next part
       }
     });
   });
