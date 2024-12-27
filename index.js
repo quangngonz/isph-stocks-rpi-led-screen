@@ -8,7 +8,8 @@ import getFormattedTickers from './utils/tickersFormatter.js';
 // Initialize the LED matrix
 const matrix = new LedMatrix(matrixOptions, runtimeOptions);
 // TODO: Add custom font
-const font = new Font('knxt', `${process.cwd()}/fonts/knxt.bdf`);
+// const font = new Font('knxt', `${process.cwd()}/fonts/knxt.bdf`);
+const font = new Font('stock_font', `${process.cwd()}/stock_font.bdf`);
 
 // Fetch formatted ticker data
 let textParts = []; // Initialize textParts as an empty array
@@ -19,7 +20,7 @@ const updateTickers = async () => {
   await fetchSP500(); // Fetch SP500 data
   await getTickers(); // Get ticker data
   textParts = getFormattedTickers(); // Update textParts with new data
-  console.log('Tickers updated:', textParts);
+  console.log('Tickers updated:', textParts[0].text);
 };
 
 // Call updateTickers once at startup

@@ -49,11 +49,11 @@ const fetchSP500 = async () => {
     }
   }
 
-  console.log('All S&P 500 Data:', allData);
+  // console.log('All S&P 500 Data:', allData);
 
   // Cache the fetched data
   fs.writeFileSync(cacheFilePath, JSON.stringify(allData));
-  console.log(allData.length);
+  console.log(`Number of data fetched ${allData.length}`);
 
   return allData;
 };
