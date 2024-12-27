@@ -27,11 +27,11 @@ const getFormattedTickers = () => {
   try {
     // Read and parse the JSON file
     const data = JSON.parse(fs.readFileSync(cacheFilePath, 'utf-8'));
-    console.log('Raw Data:', data);
+    // console.log('Raw Data:', data);
 
     // Format the data into text parts
     const formattedTextParts = formatToTextParts(data);
-    console.log('Formatted Text Parts:', formattedTextParts);
+    console.log('Formatted Text Parts:', formattedTextParts[0]);
 
     return formattedTextParts;
   } catch (error) {

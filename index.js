@@ -8,8 +8,9 @@ import getFormattedTickers from './utils/tickersFormatter.js';
 // Initialize the LED matrix
 const matrix = new LedMatrix(matrixOptions, runtimeOptions);
 // TODO: Add custom font
+// const font = new Font('peep', `${process.cwd()}/fonts/peep-10x20.bdf`);
 // const font = new Font('knxt', `${process.cwd()}/fonts/knxt.bdf`);
-const font = new Font('stock_font', `${process.cwd()}/stock_font.bdf`);
+const font = new Font('Haxor', `${process.cwd()}/fonts/HaxorNarrow-17.bdf`);
 
 // Fetch formatted ticker data
 let textParts = []; // Initialize textParts as an empty array
@@ -17,10 +18,10 @@ let textParts = []; // Initialize textParts as an empty array
 // Function to fetch and update textParts
 const updateTickers = async () => {
   console.log('Fetching SP500 data and updating tickers...');
-  await fetchSP500(); // Fetch SP500 data
   await getTickers(); // Get ticker data
+  await fetchSP500(); // Fetch SP500 data
   textParts = getFormattedTickers(); // Update textParts with new data
-  console.log('Tickers updated:', textParts[0].text);
+  console.log('Tickers updated:', textParts[0]);
 };
 
 // Call updateTickers once at startup
@@ -59,7 +60,7 @@ matrix.afterSync((mat, dt, t) => {
   let followUpX = xPos + textWidth;
   textParts.forEach((partGroup) => {
     partGroup.forEach((part) => {
-      matrix.fgColor(part.color); // Set the color for the part
+      matrix.fgColor(part.color); // Set the color for the par
       matrix.drawText(part.text, followUpX, -2); // Draw the follow-up text part
       followUpX += part.text.length * 9; // Move x position for the next part
     });
