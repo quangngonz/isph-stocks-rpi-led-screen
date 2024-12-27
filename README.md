@@ -50,6 +50,14 @@ This project is an educational initiative designed to display live S&P 500 stock
    node index.js
    ```
 
+## Demo
+
+See the project in action!
+
+[![Watch the Demo](demo/thumbnail.png)](demo/demo_video.mp4)
+
+You can also find the video in the `demo/demo_video.mp4` file in this repository.
+
 ## Project Structure
 
 - **`index.js`**: Main script controlling the LED display.
